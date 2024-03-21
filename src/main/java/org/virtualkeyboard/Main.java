@@ -1,4 +1,9 @@
-package org.yy;
+package org.virtualkeyboard;
+
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
+
+import javax.swing.*;
 
 /**
  * @author zhengziyang
@@ -6,6 +11,25 @@ package org.yy;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getCrossPlatformLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException e) {
+            throw new RuntimeException(e);
+        }
+        GlobalScreen.addNativeKeyListener(new KeyboardListener());
+        VirtualKeyboard frame = new VirtualKeyboard();
+        frame.setVisible(true);
     }
 }

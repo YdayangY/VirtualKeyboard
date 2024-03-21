@@ -1,8 +1,9 @@
-package org.yy;
+package org.virtualkeyboard;
 
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,16 +69,18 @@ public class ButtonManager {
             setBorder(BorderFactory.createLineBorder(ColorManager.COLOR_RELEASED));
             setContentAreaFilled(false);
             setBackground(ColorManager.COLOR_RELEASED);
+            setForeground(Color.WHITE);
         }
 
         public MyButton(String text, Integer x, Integer y) {
             super(text);
             setOpaque(false);
             setMargin(new Insets(0, 0, 0, 0));
-            setBorder(BorderFactory.createLineBorder(ColorManager.COLOR_RELEASED));
+            setBorder(BorderFactory.createLineBorder(ColorManager.COLOR_RELEASED, 0));
             setContentAreaFilled(false);
             setBackground(ColorManager.COLOR_RELEASED);
             setBounds(x, y, 30, 30);
+            setForeground(Color.white);
         }
 
         public void changeColor() {
