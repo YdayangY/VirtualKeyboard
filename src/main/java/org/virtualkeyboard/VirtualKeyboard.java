@@ -22,6 +22,7 @@ public class VirtualKeyboard extends JFrame {
         setTitle("VirtualKeyboard");    //设置窗体的标题
         setUndecorated(true);
         setBackground(ColorManager.COLOR_FRAME_BACKGROUND);
+        setAlwaysOnTop(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    //设置窗体退出时操作
         setBounds(100, 100, 300, 250);    //设置窗体位置和大小
         Point point = new Point();
